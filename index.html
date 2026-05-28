@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLED Focus Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-container" class="view-container">
+        <div id="clock-view" class="view">
+            <div id="digital-clock" class="text-large">00:00:00</div>
+            <div id="date-display" class="text-small">Monday, January 01</div>
+        </div>
+
+        <div id="stopwatch-view" class="view hidden">
+            <div id="stopwatch-display" class="text-large">00:00.00</div>
+            <div class="text-small">Stopwatch</div>
+        </div>
+
+        <div id="timer-view" class="view hidden">
+            <div id="timer-display" class="text-large">00:00:00</div>
+            <div id="timer-hint" class="text-small">L/R: Hours | U/D: Mins | Space: Start</div>
+        </div>
+    </div>
+
+    <video id="ghost-video" loop muted playsinline style="display:none;">
+  <source src="https://raw.githubusercontent.com/anars/blank-audio/master/250-milliseconds-of-silence.mp3" type="audio/mp3">
+</video>
+
+    <script src="script.js"></script>
+</body>
+</html>

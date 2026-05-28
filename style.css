@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+/* =========================================
+   COLOR DASHBOARD - CHANGE COLORS HERE
+   ========================================= */
+:root {
+    --clock-color: #ffffff; /* [Day: #000000, Night Options: #8B0000, #B87333, #006400, #555555] */
+    --date-color:  #ffffff; /* [Day: #000000, 
+    Night Options: #4A0000, #5E3A1A, #003300, #222222] */
+}
+
+/* =========================================
+   CORE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--clock-color);
+    transition: background-color 0.1s ease;
+}
+
+/* THE VISUAL ALARM FLASH */
+body.alarm-flash {
+    background-color: #ffffff !important;
+}
+body.alarm-flash .text-large, 
+body.alarm-flash .text-small,
+body.alarm-flash .colon {
+    color: #000000 !important;
+    opacity: 1 !important;
+}
+
+.view-container {
+    text-align: center;
+    transition: transform 1.2s ease-in-out;
+    will-change: transform;
+}
+
+.view {
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* TEXT STYLING */
+.text-large {
+    color: var(--clock-color);
+    font-size: clamp(4rem, 18vw, 15rem);
+    font-weight: 900;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.5s ease;
+}
+
+.text-small {
+    color: var(--date-color);
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-top: 20px;
+    transition: color 0.5s ease;
+}
+
+.colon {
+    position: relative;
+    top: -0.06em;
+    padding: 0 0.05em;
+    opacity: 0.8;
+}
+
+/* THE HEARTBEAT ANIMATION */
+@keyframes heartbeat {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* This targets any span with class 'colon' inside an element with class 'blinking' */
+.blinking .colon {
+    animation: heartbeat 1s step-end infinite;
+}
